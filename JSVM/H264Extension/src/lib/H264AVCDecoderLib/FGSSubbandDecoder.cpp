@@ -528,7 +528,7 @@ RQFGSDecoder::xResidualBlock        ( MbDataAccess&   rcMbDataAccess,
   TCoeff    aiCoeffTemp[16];
   TCoeff    aiCoeffBaseTemp[16];
   UInt      uiBlkX, uiBlkY, uiB8x8, uiB4x4IdxInB8x8;
-  Par8x8    ePar8x8;
+  Par8x8    ePar8x8 = Par8x8(0);
 
   uiB4x4IdxInB8x8 = 0;
   if( eResidualMode == LUMA_SCAN && uiStride == 1 ) {
