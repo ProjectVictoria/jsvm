@@ -405,9 +405,6 @@ RQFGSDecoder::xDecodeMbHeader( MbDataAccess*      pcMbDataAccessBL,
                                MbFGSCoefMap       &rcMbFGSCoefMap,
                                Int&               riLastQp )
 {
-  UInt    uiMbX = pcMbDataAccessBL->getMbX();
-  UInt    uiMbY = pcMbDataAccessBL->getMbY();
-  UInt    uiMbIndex = uiMbY * m_uiWidthInMB + uiMbX;
   UInt    uiCbpBit;
   MbSymbolReadIf* pcMbHeaderReader;
 
@@ -623,7 +620,6 @@ RQFGSDecoder::xResidualBlock        ( MbDataAccess&   rcMbDataAccess,
         if( eStatus != Err::m_nOK )
           break;
 
-        Int iCoeff; 
         //if( eResidualMode == LUMA_SCAN && uiStride == 1 )
         {
           iCoeff = piCoeff[pucScan[uiCycle]];
