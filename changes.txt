@@ -1,4 +1,17 @@
 
+JSVM_DEV_8_9 -> JSVM_DEV_8_9_1
+======================
+Date        : May 15, 2007
+Author      : Marta Karczewicz (Qualcomm)
+Contribution: JVT-V095
+
+Changes:
+
+- Add codetype method for refinement coefficients(JVT-V095).
+- Minor bug fixes related to partial decoding
+
+
+
 JSVM_8_8 -> JSVM_8_9
 ======================
 Date        : March 19, 2007
@@ -227,7 +240,7 @@ Note: The changes can be located by searching 'U160'.
 -EIDR Bug fixes related to IntraPeriod vs IDRPeriod (provided by shenqiu). 
 
 -Temporal level nesting flag default value is now set to 0  (J. Vieron).
--Very minor: Remove of remaining AGS parts in cfg files of validation scripts (J. Viéron).
+-Very minor: Remove of remaining AGS parts in cfg files of validation scripts (J. Viï¿½ron).
 
 
 

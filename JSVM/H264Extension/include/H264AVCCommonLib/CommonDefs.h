@@ -353,7 +353,7 @@ H264AVC_NAMESPACE_END
 typedef	enum
 {
 	EC_NONE												=	100,
-  EC_BLSKIP,
+    EC_BLSKIP,
 	EC_FRAME_COPY,
 	EC_TEMPORAL_DIRECT,
 	EC_INTRA_COPY                // =200
@@ -362,6 +362,8 @@ typedef	enum
 
 #define MAX_NUM_PD_FRAGMENTS                          12
 #define MAX_NUM_FGS_VECT_MODES                        8
+
+#define REF_COEFF_FORCE_ZERO_THRESHOLD				  0	  // JVT-U132 and JVT-V095
 
 // TMM_INTERLACE {
 // #define RANDOM_MBAFF

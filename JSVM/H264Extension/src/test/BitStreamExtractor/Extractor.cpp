@@ -3202,17 +3202,16 @@ Extractor::xExtractLayerLevel() // this function for extracting using "-sl, -l, 
                 RNOK( m_pcWriteBitstream->writePacket( &m_cBinDataStartCode ) );
 
                 if( uiKeptSize > pcBinDataFrags[ui]->size() ) {
-                  RNOK( m_pcWriteBitstream->writePacket( pcBinDataFrags[ui] ) );
                   uiKeptSize -= pcBinDataFrags[ui]->size();
                   // write last fragment flag because all other fragments will be discarded
                   if( uiKeptSize <= uiSliceReservedBytes )
-                    pcBinDataFrags[ui]->data()[3]                           |= 0x04;  // last fragment flag
+                    pcBinDataFrags[ui]->data()[3]                           |= 0x08;  // last fragment flag
                   RNOK( m_pcWriteBitstream->writePacket( pcBinDataFrags[ui] ) );
                 }
                 else {
                   // should we set the last_fragment_flag here?
                   RNOK( pcBinDataFrags[ui]->decreaseEndPos( pcBinDataFrags[ui]->size() - uiKeptSize ) );
-                  pcBinDataFrags[ui]->data()[3]                             |= 0x04;  // last fragment flag
+                  pcBinDataFrags[ui]->data()[3]                             |= 0x08;  // last fragment flag
                   pcBinDataFrags[ui]->data()[pcBinDataFrags[ui]->size()-1]  |= 0x01; // trailing one
                   RNOK( m_pcWriteBitstream->writePacket( pcBinDataFrags[ui] ) );
                   uiKeptSize = 0;

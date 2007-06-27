@@ -193,6 +193,11 @@ public:
   CoefMap* getCoefMap( B8x8Idx   c8x8Idx    )               { return &m_aacCoefMap[4*c8x8Idx.b8x8Index()][0]; }
   CoefMap* getCoefMap( ChromaIdx cChromaIdx )               { return &m_aacCoefMap[16+cChromaIdx][0]; }
 
+  // for JVT-V095
+  CoefMap* getCoefMapH( S4x4Idx   cS4x4Idx  )               { return &m_aacCoefMapH[cS4x4Idx.s4x4()][0]; }
+  CoefMap* getCoefMapH( B8x8Idx   c8x8Idx   )               { return &m_aacCoefMapH[4*c8x8Idx.b8x8Index()][0]; }
+  Int&  getMbMapH  ()                                       { return m_iMbMapH; }
+
   RefCtx*  getRefCtx( S4x4Idx   cS4x4Idx   )                { return &m_aacRefCtx[cS4x4Idx.s4x4()][0]; }
   RefCtx*  getRefCtx( B8x8Idx   c8x8Idx    )                { return &m_aacRefCtx[4*c8x8Idx.b8x8Index()][0]; }
   RefCtx*  getRefCtx( ChromaIdx cChromaIdx )                { return &m_aacRefCtx[16+cChromaIdx][0]; }
@@ -213,6 +218,10 @@ public:
 private:
   CoefMap m_aacCoefMap[24][16];
   RefCtx  m_aacRefCtx[24][16];
+
+  //JVT-V095
+  CoefMap m_aacCoefMapH[24][16];	//store the history for Luma refinement coeffs
+  Int    m_iMbMapH;					//store the code type of a Luma MB
 
   UInt    m_uiMbMap;
   UChar   m_aucB8x8Map[4];
@@ -285,6 +294,8 @@ public:
 
   ErrVal            reconstruct           ( IntFrame* pcRecResidual, Bool bDecoder );
   SliceHeader*      getSliceHeader        ()    { return m_pcSliceHeader; }
+
+  SliceType         m_eFrameType;
 
 protected:
 
