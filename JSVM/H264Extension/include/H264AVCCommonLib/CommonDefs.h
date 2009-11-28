@@ -8,7 +8,7 @@
 
 
 
-#define _JSVM_VERSION_ "9.18"
+#define _JSVM_VERSION_ "9.19"
 
 
 
@@ -284,6 +284,9 @@ typedef	enum
 //TMM_EC }}
 
 #define MAX_NUM_PD_FRAGMENTS                          12
+
+#define IGNORE_TRAILING_BITS_IN_END_OF_SEQUENCE       1   // for panasonic streams (frext1,2,3,4) - these streams don't look conforming (end-of-sequence-NALUs include trailing bits)
+#define IGNORE_TRAILING_BITS_IN_END_OF_STREAM         1   // for panasonic streams (frext1,2,3,4) - these streams don't look conforming (end-of-sequence-NALUs include trailing bits)
 
 
 
