@@ -1,0 +1,7 @@
+lib/lib*.a
+bin/
+.idea/
+*.d.o
+*.d.P
+*.r.o
+*.r.P
